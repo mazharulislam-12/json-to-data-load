@@ -16,11 +16,14 @@ import Posts from './components/Posts/Posts.jsx';
 import PostDetails from './components/PostDetails/PostDetails.jsx';
 import Comments from './components/Comments/Comments.jsx';
 import CommentsDetails from './components/CommentDetails/CommentsDetails.jsx';
+import ErroorPage from './components/ErrorPage/ErroorPage.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+    errorElement: <ErroorPage></ErroorPage>,
+    
     children: [
       {
         path: '/about',
