@@ -17,6 +17,8 @@ import PostDetails from './components/PostDetails/PostDetails.jsx';
 import Comments from './components/Comments/Comments.jsx';
 import CommentsDetails from './components/CommentDetails/CommentsDetails.jsx';
 import ErroorPage from './components/ErrorPage/ErroorPage.jsx';
+import Todos from './components/Todos/Todos.jsx';
+import TodoDetails from './components/TodoDetails.jsx/TodoDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -63,6 +65,16 @@ const router = createBrowserRouter([
         loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/comments/${params.CommentId}`),
         element: <CommentsDetails></CommentsDetails>
 
+      },
+      {
+        path: '/todos',
+        loader: () => fetch('https://jsonplaceholder.typicode.com/todos'),
+        element: <Todos></Todos>
+      },
+      {
+        path: '/todo/:todoId',
+        loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/todos/${params.todoId}`),
+        element: <TodoDetails></TodoDetails>
       }
     ]
   },
