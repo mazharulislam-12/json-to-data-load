@@ -19,6 +19,8 @@ import CommentsDetails from './components/CommentDetails/CommentsDetails.jsx';
 import ErroorPage from './components/ErrorPage/ErroorPage.jsx';
 import Todos from './components/Todos/Todos.jsx';
 import TodoDetails from './components/TodoDetails.jsx/TodoDetails.jsx';
+import Photos from './components/Photos/Photos.jsx';
+import PhotoDetails from './components/PhotoDetails/PhotoDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -75,6 +77,16 @@ const router = createBrowserRouter([
         path: '/todo/:todoId',
         loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/todos/${params.todoId}`),
         element: <TodoDetails></TodoDetails>
+      },
+      {
+        path: '/phots',
+        loader: () => fetch('https://jsonplaceholder.typicode.com/photos'),
+        element: <Photos></Photos>,
+      },
+      {
+        path: '/photo/:photoId',
+        loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/photos/${params.photoId}`),
+        element: <PhotoDetails></PhotoDetails>
       }
     ]
   },
